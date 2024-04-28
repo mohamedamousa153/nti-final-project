@@ -1,0 +1,3 @@
+terrafrom/.terraform
+terrafrom/.terraform.lock.hcl
+ansible/TFkey

@@ -1,0 +1,20 @@
+# insecure-registries will be located in '/etc/docker/daemon.json' and sudo systemctl restart docker
+---
+- name: Update APT package cache
+  become: yes
+  apt:
+    update_cache: yes
+
+- name: Install Docker from Ubuntu repository
+  become: yes
+  apt:
+    name: docker.io
+    state: present
+
+- name: Start and enable Docker service
+  become: yes
+  service:
+    name: docker
+    state: started
+    enabled: yes
+

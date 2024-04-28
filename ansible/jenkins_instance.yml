@@ -1,0 +1,25 @@
+
+- name: Install Jenkins on EC2 instance
+  hosts: [jen_ec2_ip]
+  become: yes
+
+  tasks:
+    - name: Run nginx Role
+     include_role:
+        name: nginx
+ 
+    - name: Configure AWS CLI
+      include_role:
+        name: aws_cli
+
+    - name: Set Up Docker Environment
+      include_role:
+        name: docker
+
+    - name: Deploy Jenkins Service
+      include_role:
+        name: jenkins
+
+    - name: Manage Kubernetes with Kubectl
+      include_role:
+         name: kubectl
