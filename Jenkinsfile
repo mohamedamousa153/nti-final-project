@@ -53,8 +53,11 @@ pipeline {
             steps {
                 script {
                     withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: '730335448540']]){
+                    
+                    sh '''
                     aws eks update-kubeconfig --region us-east-1 --name demo
-                    sh "kubectl apply -f ${K8S_FILE}"
+                    kubectl apply -f ${K8S_FILE}
+                        '''
                      }
                 }
             }
