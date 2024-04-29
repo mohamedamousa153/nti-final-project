@@ -4,7 +4,7 @@ pipeline {
     environment {
         IMAGE_NAME = "todo-app-automation"
         ECR_PASS = "730335448540.dkr.ecr.us-east-1.amazonaws.com"
-        ECR_URL = "730335448540.dkr.ecr.us-east-1.amazonaws.com/todo-app-automation"
+        ECR_URL = "730335448540.dkr.ecr.us-east-1.amazonaws.com"
         AWS_REGION = "us-east-1"
         IMAGE_TAG = "${IMAGE_NAME}:${BUILD_NUMBER}"
         K8S_FILE = "k8s"
