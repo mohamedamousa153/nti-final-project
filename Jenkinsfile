@@ -52,7 +52,10 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
+                    withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: '730335448540']]){
+                    aws eks update-kubeconfig --region us-east-1 --name demo
                     sh "kubectl apply -f ${K8S_FILE}"
+                     }
                 }
             }
         }
