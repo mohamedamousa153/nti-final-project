@@ -43,7 +43,7 @@ pipeline {
                     sh ''' 
                     ECR_URL="${ECR_URL}"
                     echo "Push Docker image to ECR"
-                    docker push ${ECR_URL}:${BUILD_NUMBER}
+                    docker push ${ECR_URL}/${IMAGE_TAG}
                      '''
                 }
             }
